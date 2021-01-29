@@ -12,6 +12,7 @@ public class LoadNextScene : MonoBehaviour
         print(coll.gameObject.tag);
         if (coll.transform.tag == "Player")
         {
+            PlayerRef.instance.lastSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(nextScene);
         }
     }

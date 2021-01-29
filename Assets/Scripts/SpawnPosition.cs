@@ -11,13 +11,19 @@ public class SpawnPosition : MonoBehaviour
         if (instance == null)
             instance = this;        
     }
-    public void Spawned(Transform playersTransform, string lastSceneName) 
+    public Vector3 Spawned(Transform playersTransform, string lastSceneName) 
     {
         foreach (var spawn in spawnPoints)
         {
+            print(spawn.sceneName + "/" + lastSceneName);
             if (lastSceneName == spawn.sceneName)
+            {
                 playersTransform.position = spawn.spawnPosition.position;
+                return spawn.spawnPosition.position;
+            }
         }
+
+        return Vector3.zero;
     }
 }
 

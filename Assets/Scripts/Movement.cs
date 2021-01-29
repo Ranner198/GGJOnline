@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     public float speed;
     public Vector2 mousePosition;
     public new Camera camera;
-    private Vector2 newPosition;
+    [HideInInspector]
+    public Vector2 newPosition;
 
     void Update()
     {

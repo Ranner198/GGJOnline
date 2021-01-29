@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerRef : MonoBehaviour
 {
     public static PlayerRef instance;
-    public Camera camera;
+    public string lastSceneName;
+    public new Camera camera;
+    public Movement movement;
     void Start()
     {
         if (instance == null)
@@ -21,7 +23,7 @@ public class PlayerRef : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {        
-        SpawnPosition.instance.Spawned(this.transform, scene.name);      
+    {
+        movement.newPosition = SpawnPosition.instance.Spawned(this.transform, lastSceneName);      
     }
 }
