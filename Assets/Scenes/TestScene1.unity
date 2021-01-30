@@ -5514,6 +5514,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4062857729033855201, guid: d274371333f83804cb789ca819a569cd, type: 3}
     - target: {fileID: 6164129673188532811, guid: d274371333f83804cb789ca819a569cd, type: 3}
+      propertyPath: TakenState
+      value: Key1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164129673188532811, guid: d274371333f83804cb789ca819a569cd, type: 3}
       propertyPath: DestoryOnClick
       value: 1
       objectReference: {fileID: 0}

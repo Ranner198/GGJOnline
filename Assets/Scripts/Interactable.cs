@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     public UnityEvent onClickEvent;
     public bool addToInventory, DestoryOnClick, deactiveColliderOnClick;
+    public string TakenState;
 
     public string Name;
     public int Quanity;
@@ -18,8 +19,16 @@ public class Interactable : MonoBehaviour
 
     public void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (GameStateManager.Is(TakenState))
+        {
+            // This item is disabled, just Destroy and stop here
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -35,7 +44,10 @@ public class Interactable : MonoBehaviour
     {
         print("clicked on " + this.gameObject);
         if (addToInventory)
+        {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
+            GameStateManager.Set(TakenState);
+        }
         if (deactiveColliderOnClick)
             GetComponent<BoxCollider2D>().enabled = false;
         if (DestoryOnClick)
