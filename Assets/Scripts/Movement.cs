@@ -37,12 +37,12 @@ public class Movement : MonoBehaviour
             if (direction.x > 1f) // Player Face Right
             {
                 characterDir.x = scaleSize;
-                anim.SetTrigger("Walk");
+                if (anim != null) anim.SetTrigger("Walk");
             }
             else if (direction.x < -1f) // Player Face Left
             {
                 characterDir.x = -scaleSize;
-                anim.SetTrigger("Walk");
+                if (anim != null) anim.SetTrigger("Walk");
             }
         }
 
@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour
         if (distance < 1 && isMoving == true)
         {
             isMoving = false;
-            anim.SetTrigger("Idle");
+            if (anim != null) anim.SetTrigger("Idle");
         }
 
         // Face Direction
