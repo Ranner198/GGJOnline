@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public EventSystem eventSystem;
     public static Movement instance;
     private bool cancelMoving = false;
+    public AudioSource BarkSound;
 
     private void Awake()
     {
@@ -40,6 +41,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        bool changeFacing = true;
+        bool moveToPoint = true;
         Vector3 placeholder = Input.mousePosition;
         placeholder.z = 0;
         mousePosition = camera.ScreenToWorldPoint(placeholder);
@@ -63,29 +66,56 @@ public class Movement : MonoBehaviour
                     found = true;
                     return;
                 }
+                if (hit[i].transform.tag == "Player")
+                {
+                    // Clicked on dog!
+                    DoBark();
+                    changeFacing = false;
+                    moveToPoint = false;
+                }
             }
 
             if (found)
                 return;
 
-            newPosition = mousePosition;
-            direction = newPosition - (Vector2)transform.position;
-            isMoving = true;
-            if (direction.x > 0f) // Player Face Right
+            if (moveToPoint)
             {
-                characterDir.x = Mathf.Abs(scaleSize);
-            }
-            else if (direction.x < 0f) // Player Face Left
-            {
-                characterDir.x = -Mathf.Abs(scaleSize);
+                newPosition = mousePosition;
+                direction = newPosition - (Vector2)transform.position;
+                isMoving = true;
+                if (changeFacing)
+                {
+                    if (direction.x > 0f) // Player Face Right
+                    {
+                        characterDir.x = Mathf.Abs(scaleSize);
+                    }
+                    else if (direction.x < 0f) // Player Face Left
+                    {
+                        characterDir.x = -Mathf.Abs(scaleSize);
+                    }
+                }
             }
         }
         cancelMoving = false;
 
-        float distance = Vector2.Distance(transform.position, newPosition);
-        transform.Translate((newPosition-(Vector2)transform.position).normalized * Time.deltaTime * speed);
+        if (moveToPoint)
+        {
+            float distance = Vector2.Distance(transform.position, newPosition);
+            if (distance > 0.1f)
+            {
+                transform.Translate((newPosition - (Vector2)transform.position).normalized * Time.deltaTime * speed);
+                if (anim != null) anim.SetFloat("Vel", distance);
+            }
+            else
+            {
+                if (anim != null) anim.SetFloat("Vel", 0.0f);
+            }
+        }
+        else
+        {
+            if (anim != null) anim.SetFloat("Vel", 0.0f);
+        }
 
-        if (anim != null) anim.SetFloat("Vel", distance);
         // Face Direction
         transform.localScale = characterDir;
     }
@@ -110,10 +140,22 @@ public class Movement : MonoBehaviour
 
     public void HaltMovement()
     {
-Debug.Log("Halting movement");
+        Debug.Log("Halting movement");
         newPosition = transform.position;
         if (anim != null) anim.StopPlayback();
         isMoving = false;
         cancelMoving = true;
+    }
+
+    public void DoBark()
+    {
+        Debug.Log("Bark!!");
+        anim.SetTrigger("Bark");
+        BarkSound.Play();
+        ListenForBark[] Listeners = FindObjectsOfType<ListenForBark>();
+        foreach (ListenForBark Listener in Listeners)
+        {
+            Listener.BarkEvent.Invoke(gameObject);
+        }
     }
 }

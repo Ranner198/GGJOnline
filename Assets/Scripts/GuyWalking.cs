@@ -26,9 +26,11 @@ public class GuyWalking : MonoBehaviour
     private bool lastFacing;
     public GameObject PhoneOnGround;
     public GameObject PhoneBattery;
+    private int barkCount;
 
     private void Start()
     {
+        barkCount = 3;
         if (GameStateManager.Is("GuyWalkingDone"))
         {
             Destroy(gameObject);
@@ -142,6 +144,26 @@ public class GuyWalking : MonoBehaviour
             Phone.transform.localPosition = new Vector3(-Phone.transform.localPosition.x, Phone.transform.localPosition.y, Phone.transform.localPosition.z);
             PhoneStartPoint.transform.localPosition = new Vector3(-PhoneStartPoint.transform.localPosition.x, PhoneStartPoint.transform.localPosition.y, PhoneStartPoint.transform.localPosition.z);
             PhoneEndPoint.transform.localPosition = new Vector3(-PhoneEndPoint.transform.localPosition.x, PhoneEndPoint.transform.localPosition.y, PhoneEndPoint.transform.localPosition.z);
+        }
+    }
+
+    public void BarkEvent(GameObject Barker)
+    {
+        Debug.Log("Guy walking Barked at by " + Barker);
+        if ((!IsLeaving) && (!IsPausing))
+        {
+            bool IsDogToRight = Barker.transform.position.x > transform.position.x;
+
+            // If different directions, the dog is behind us
+            if (IsDogToRight != IsGoingRight)
+            {
+                // Takes three barks behind them to cause them to drop the phone
+                barkCount--;
+                if (barkCount == 0)
+                {
+                    IsDroppingPhone = true;
+                }
+            }
         }
     }
 }
