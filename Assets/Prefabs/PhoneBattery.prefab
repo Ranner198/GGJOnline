@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1516252827502509620
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   Name: Battery
   Quanity: 1
   sprite: {fileID: 21300000, guid: 9e69ced7a42d8a14a827aba51ea0345a, type: 3}
-  ItemSpawn: {fileID: 8633241155115624799}
+  ItemSpawn: {fileID: 3140276557053553713, guid: a1683b0b96b13bd48914c0fdbd411c06, type: 3}
 --- !u!61 &881338147
 BoxCollider2D:
   m_ObjectHideFlags: 0
