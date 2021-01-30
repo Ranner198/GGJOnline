@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TouchPopup : MonoBehaviour
 {
     public string popupID;
     public bool haltMovement = true;
     public bool ReadyForCollisions = false;
+
+    public UnityEvent onPopup;
 
     public void Start()
     {
@@ -27,6 +30,7 @@ public class TouchPopup : MonoBehaviour
             {
                 print("Showing popup " + popupID);
                 Overlay.instance.ShowOnlyPopupImage(popupID);
+                onPopup.Invoke();
                 if (haltMovement)
                 {
                     coll.GetComponent<Movement>().HaltMovement();

@@ -14,15 +14,9 @@ public class Inventory : MonoBehaviour
 
     public int numberOfInventorySlots = 10;
 
-    [SerializeField] GraphicRaycaster m_Raycaster;
-    PointerEventData m_PointerEventData;
-    [SerializeField] EventSystem m_EventSystem;
-
     [SerializeField]
     private GameObject inHand;
-    [SerializeField]
     private int Index;
-    private bool usingItem = false;
 
     public void Start()
     {
@@ -35,6 +29,7 @@ public class Inventory : MonoBehaviour
     public void AddItem(string Name, int quantity, Sprite sprite, GameObject go) 
     {
         bool found = false;
+        print("hello>");
         for (int i = 0; i < inventoryItems.Count; i++)
         {
             if (inventoryItems[i].Name == "")
@@ -45,7 +40,6 @@ public class Inventory : MonoBehaviour
             }
         }
         if (!found) { print("ERROR no room in inventory..."); }
-        Movement.instance.HaltMovement();
     }
 
     public void UseItem(int index)
@@ -55,8 +49,6 @@ public class Inventory : MonoBehaviour
             inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
             inHand.GetComponent<Collider2D>().enabled = false;
             Index = index;
-            Movement.instance.HaltMovement();
-            usingItem = false;
         }
     }
 
@@ -68,12 +60,10 @@ public class Inventory : MonoBehaviour
             mousePos.z = 0;
             inHand.transform.position = mousePos;
 
-            if (Input.GetMouseButtonDown(0) && usingItem)
+            if (Input.GetMouseButton(0))
             {
                 Use(mousePos);
-                usingItem = false;
             }
-            usingItem = true;
         }
     }
 
@@ -85,21 +75,6 @@ public class Inventory : MonoBehaviour
         Debug.DrawRay(mousePos, Vector3.forward * 100);
         int i = 0;
 
-
-        // Check if hitting UI
-        //Set up the new Pointer Event
-        m_PointerEventData = new PointerEventData(m_EventSystem);
-        //Set the Pointer Event Position to that of the game object
-        m_PointerEventData.position = this.transform.localPosition;
-
-        //Create a list of Raycast Results
-        List<RaycastResult> results = new List<RaycastResult>();
-
-        //Raycast using the Graphics Raycaster and mouse click position
-        m_Raycaster.Raycast(m_PointerEventData, results);
-        if (results.Count > 0) Debug.Log("Hit " + results[0].gameObject.name);
-
-
         while (i < hits.Length)
         {            
             RaycastHit2D hit = hits[i];
@@ -110,11 +85,11 @@ public class Inventory : MonoBehaviour
                 if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
                 {                    
                     inventoryItems[Index].UseItem();
+                    Destroy(inHand);
                 }
             }
             i++;
-        }
-        Destroy(inHand);
-        Movement.instance.HaltMovement();
+                Destroy(inHand);
+        }        
     }
 }
