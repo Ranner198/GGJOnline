@@ -20,7 +20,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     public void UseItem()
     {        
-        this.Name = null;
+        this.Name = "";
         this.Quantity = null;
         this.Sprite = null;
         this.Interactable = null;

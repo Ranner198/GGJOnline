@@ -18,4 +18,14 @@ public class ItemNeeded : MonoBehaviour
         else
             return false;
     }
+
+    public bool CanUse(string go)
+    {
+        if (this.go == go)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
 }

@@ -9,6 +9,7 @@ public class TouchPopup : MonoBehaviour
     public bool haltMovement = true;
     public bool ignoreWalkOver = false;
     public bool ReadyForCollisions = false;
+    public bool DisablePopup = false;
 
     public UnityEvent onPopup;
 
@@ -42,9 +43,12 @@ public class TouchPopup : MonoBehaviour
         // Only show a pop if none are showing
         if (Overlay.instance.CurrentPopup == "")
         {
-            print("Showing popup " + popupID);
-            Overlay.instance.ShowOnlyPopupImage(popupID);
+            if (!DisablePopup)
+            {
+                print("Showing popup " + popupID);
+                Overlay.instance.ShowOnlyPopupImage(popupID);
                 onPopup.Invoke();
+            }
             if (haltMovement)
             {
                 Movement.instance.HaltMovement();

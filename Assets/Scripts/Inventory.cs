@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryItems[i].Name == "")
             {
+                print("Setting prop " + i);
                 inventoryItems[i].SetProps(i, Name, quantity, sprite, go);
                 found = true;
                 break;
@@ -84,14 +85,17 @@ public class Inventory : MonoBehaviour
         while (i < hits.Length)
         {            
             RaycastHit2D hit = hits[i];
-            print(hit.transform.tag);
+            print("Use " + Index + ": " + hit.transform.name + " tag=" + hit.transform.tag);
             var itmNeeded = hit.transform.GetComponent<ItemNeeded>();            
             if (itmNeeded != null)
             {
-                if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
-                {                    
+                if (itmNeeded.CanUse(inHand.GetComponent<Interactable>().Name))
+                {
                     inventoryItems[Index].UseItem();
-                    Destroy(inHand);
+                    if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
+                    {
+                        Destroy(inHand);
+                    }
                 }
             }
             i++;
