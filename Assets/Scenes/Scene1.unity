@@ -4812,11 +4812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2eb79c62b8d4d4c8cdf26179f6df5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 5
   mousePosition: {x: 0, y: 0}
   camera: {fileID: 519420031}
   newPosition: {x: 0, y: 0}
   anim: {fileID: 1870891774}
+  isMoving: 0
 --- !u!114 &1870891773
 MonoBehaviour:
   m_ObjectHideFlags: 0
