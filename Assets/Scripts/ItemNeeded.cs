@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class ItemNeeded : MonoBehaviour
 {
-    public GameObject go;
+    public string go;
     public UnityEvent Completed;
 
-    public bool Use(GameObject go) 
+    public bool Use(string go) 
     {
         if (this.go == go)
         {

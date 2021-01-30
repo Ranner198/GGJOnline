@@ -9,11 +9,12 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField]
     public UnityEvent onClickEvent;
-    public bool addToInventory, deactivateOnClick, deactiveColliderOnClick;
+    public bool addToInventory, DestoryOnClick, deactiveColliderOnClick;
 
     public string Name;
     public int Quanity;
     public Sprite sprite;
+    public GameObject ItemSpawn;
 
     public void Start()
     {
@@ -34,11 +35,11 @@ public class Interactable : MonoBehaviour
     {
         print("clicked on " + this.gameObject);
         if (addToInventory)
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, this.gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
         if (deactiveColliderOnClick)
             GetComponent<BoxCollider2D>().enabled = false;
-        if (deactivateOnClick)
-            gameObject.SetActive(false);        
+        if (DestoryOnClick)
+            Destroy(gameObject);
         onClickEvent.Invoke();
     }
 }

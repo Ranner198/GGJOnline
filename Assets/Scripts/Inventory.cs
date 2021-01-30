@@ -34,9 +34,9 @@ public class Inventory : MonoBehaviour
     public void UseItem(int index)
     {
         print("CLicked");
-        inHand = inventoryItems[index].SpawnInteractable();
+        inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
+        inHand.GetComponent<Collider2D>().enabled = false;
         Index = index;
-        inHand.SetActive(true);
     }
 
     public void Update()
@@ -67,14 +67,13 @@ public class Inventory : MonoBehaviour
             var itmNeeded = hit.transform.GetComponent<ItemNeeded>();            
             if (itmNeeded != null)
             {
-                if (itmNeeded.Use(inHand))
-                {
-                    Destroy(inHand);
+                if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
+                {                    
                     inventoryItems[Index].UseItem();
                 }
             }
             i++;
-            inHand.SetActive(false);
+            Destroy(inHand);
         }
     }
 }
