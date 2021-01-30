@@ -5,6 +5,7 @@ using UnityEngine;
 public class Overlay : MonoBehaviour
 {
     public static Overlay instance;
+    public string CurrentPopup;
 
     [SerializeField]
     private PopupImage[] PopupImages;
@@ -23,5 +24,6 @@ public class Overlay : MonoBehaviour
         {
             Popup.gameObject.SetActive(Popup.ID == ID);
         }
+        CurrentPopup = ID;
     }
 }

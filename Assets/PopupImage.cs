@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class PopupImage : MonoBehaviour, IPointerDownHandler
 {
     public string ID;
+    public string NextID;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Mouse Down: " + eventData.pointerCurrentRaycast.gameObject.name);
 
         // Close image
-        Overlay.instance.ShowOnlyPopupImage("");
+        Overlay.instance.ShowOnlyPopupImage(NextID);
     }
-
 }

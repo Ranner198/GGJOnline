@@ -47,6 +47,10 @@ public class Interactable : MonoBehaviour
             GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
             GameStateManager.Set(TakenState);
         }
+        else if (GetComponent<TouchPopup>())
+        {
+            GetComponent<TouchPopup>().Show();
+        }
         if (deactiveColliderOnClick)
             GetComponent<BoxCollider2D>().enabled = false;
         if (DestoryOnClick)

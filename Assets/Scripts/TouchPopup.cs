@@ -6,6 +6,7 @@ public class TouchPopup : MonoBehaviour
 {
     public string popupID;
     public bool haltMovement = true;
+    public bool ignoreWalkOver = false;
     public bool ReadyForCollisions = false;
 
     public void Start()
@@ -20,17 +21,29 @@ public class TouchPopup : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
-        print("TouchPopup: Triggering with " + coll.gameObject.tag);
-        if (ReadyForCollisions)
+        if (!ignoreWalkOver)
         {
-            if (coll.transform.tag == "Player")
+            print("TouchPopup: Triggering with " + coll.gameObject.tag);
+            if (ReadyForCollisions)
             {
-                print("Showing popup " + popupID);
-                Overlay.instance.ShowOnlyPopupImage(popupID);
-                if (haltMovement)
+                if (coll.transform.tag == "Player")
                 {
-                    coll.GetComponent<Movement>().HaltMovement();
+                    Show();
                 }
+            }
+        }
+    }
+
+    public void Show()
+    {
+        // Only show a pop if none are showing
+        if (Overlay.instance.CurrentPopup == "")
+        {
+            print("Showing popup " + popupID);
+            Overlay.instance.ShowOnlyPopupImage(popupID);
+            if (haltMovement)
+            {
+                Movement.instance.HaltMovement();
             }
         }
     }

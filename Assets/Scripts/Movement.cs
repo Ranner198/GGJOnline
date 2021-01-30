@@ -58,21 +58,29 @@ public class Movement : MonoBehaviour
         {
             bool found = false;
 
-            RaycastHit2D[] hit = Physics2D.RaycastAll(mousePosition, Vector2.zero, 100);
-            for (int i = 0; i < hit.Length; i++)
+            if (Overlay.instance.CurrentPopup == "")
             {
-                if (hit[i].transform.tag == "Interactable")
+                RaycastHit2D[] hit = Physics2D.RaycastAll(mousePosition, Vector2.zero, 100);
+                for (int i = 0; i < hit.Length; i++)
                 {
-                    found = true;
-                    return;
+                    if (hit[i].transform.tag == "Interactable")
+                    {
+                        found = true;
+                        return;
+                    }
+                    if (hit[i].transform.tag == "Player")
+                    {
+                        // Clicked on dog!
+                        DoBark();
+                        changeFacing = false;
+                        moveToPoint = false;
+                    }
                 }
-                if (hit[i].transform.tag == "Player")
-                {
-                    // Clicked on dog!
-                    DoBark();
-                    changeFacing = false;
-                    moveToPoint = false;
-                }
+            }
+            else
+            {
+                // Overlay blocks any movement
+                moveToPoint = false;
             }
 
             if (found)
