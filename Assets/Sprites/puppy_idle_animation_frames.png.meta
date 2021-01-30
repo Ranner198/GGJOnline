@@ -116,12 +116,12 @@ TextureImporter:
       name: puppy_idle_animation_frames_0
       rect:
         serializedVersion: 2
-        x: 211
-        y: 791
-        width: 738
-        height: 513
+        x: 1089
+        y: 2390
+        width: 828
+        height: 562
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: puppy_idle_animation_frames_1
       rect:
         serializedVersion: 2
-        x: 1199
-        y: 791
-        width: 738
-        height: 484
+        x: 1081
+        y: 2382
+        width: 840
+        height: 562
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: puppy_idle_animation_frames_2
       rect:
         serializedVersion: 2
-        x: 211
-        y: 151
-        width: 738
-        height: 513
+        x: 1089
+        y: 2390
+        width: 832
+        height: 557
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: puppy_idle_animation_frames_3
       rect:
         serializedVersion: 2
-        x: 1199
-        y: 151
-        width: 738
-        height: 539
+        x: 1085
+        y: 2394
+        width: 832
+        height: 554
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

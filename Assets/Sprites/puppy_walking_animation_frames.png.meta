@@ -143,11 +143,11 @@ TextureImporter:
       name: puppy_walking_animation_frames_0
       rect:
         serializedVersion: 2
-        x: 211
-        y: 2283
-        width: 739
-        height: 515
-      alignment: 0
+        x: 143
+        y: 2404
+        width: 831
+        height: 544
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_1
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 2286
-        width: 754
-        height: 508
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1091
+        y: 2394
+        width: 830
+        height: 574
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +185,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_2
       rect:
         serializedVersion: 2
-        x: 201
-        y: 1606
-        width: 780
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 123
+        y: 1727
+        width: 882
+        height: 554
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.49270773}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_3
       rect:
         serializedVersion: 2
-        x: 1132
-        y: 1608
-        width: 771
-        height: 490
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1071
+        y: 1688
+        width: 850
+        height: 597
+      alignment: 9
+      pivot: {x: 0.52376467, y: 0.49323317}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +227,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_6
       rect:
         serializedVersion: 2
-        x: 229
-        y: 911
-        width: 750
-        height: 502
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 139
+        y: 976
+        width: 840
+        height: 554
+      alignment: 9
+      pivot: {x: 0.51442826, y: 0.4781232}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_8
       rect:
         serializedVersion: 2
-        x: 1161
+        x: 1085
         y: 915
-        width: 763
-        height: 507
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 839
+        height: 647
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_9
       rect:
         serializedVersion: 2
-        x: 1132
+        x: 1061
         y: 256
-        width: 782
-        height: 511
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 849
+        height: 583
+      alignment: 9
+      pivot: {x: 0.5142755, y: 0.49307036}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: puppy_walking_animation_frames_11
       rect:
         serializedVersion: 2
-        x: 203
+        x: 119
         y: 255
-        width: 797
-        height: 499
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 877
+        height: 572
+      alignment: 9
+      pivot: {x: 0.5184261, y: 0.46468583}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
