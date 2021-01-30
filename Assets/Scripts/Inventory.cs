@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject inHand;
     private int Index;
+    private bool usingItem = false;
 
     public void Start()
     {
@@ -40,6 +41,7 @@ public class Inventory : MonoBehaviour
             }
         }
         if (!found) { print("ERROR no room in inventory..."); }
+        Movement.instance.HaltMovement();
     }
 
     public void UseItem(int index)
@@ -49,6 +51,8 @@ public class Inventory : MonoBehaviour
             inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
             inHand.GetComponent<Collider2D>().enabled = false;
             Index = index;
+            Movement.instance.HaltMovement();
+            usingItem = false;
         }
     }
 
@@ -60,10 +64,12 @@ public class Inventory : MonoBehaviour
             mousePos.z = 0;
             inHand.transform.position = mousePos;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0) && usingItem)
             {
                 Use(mousePos);
+                usingItem = false;
             }
+            usingItem = true;
         }
     }
 
@@ -89,7 +95,8 @@ public class Inventory : MonoBehaviour
                 }
             }
             i++;
-                Destroy(inHand);
-        }        
+        }
+        Destroy(inHand);
+        Movement.instance.HaltMovement();
     }
 }
