@@ -25,6 +25,7 @@ public class GuyWalking : MonoBehaviour
     public float DropTimeRemaining;
     private bool lastFacing;
     public GameObject PhoneOnGround;
+    public GameObject PhoneBattery;
 
     private void Start()
     {
@@ -95,8 +96,11 @@ public class GuyWalking : MonoBehaviour
             Phone.transform.position = Vector3.Lerp(PhoneEndPoint.position, PhoneStartPoint.position, EasingFunction.EaseOutQuart(0, 1.0f, DropTimeRemaining/DropTime));
             if (IsDroppingPhone == false)
             {
+                Vector3 Delta = PhoneBattery.transform.position - PhoneOnGround.transform.position;
                 PhoneOnGround.transform.position = Phone.transform.position;
                 PhoneOnGround.SetActive(true);
+                PhoneBattery.transform.position = PhoneOnGround.transform.position + Delta;
+                PhoneBattery.SetActive(true);
                 Phone.SetActive(false);
             }
         }
