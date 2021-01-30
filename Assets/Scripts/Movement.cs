@@ -45,8 +45,22 @@ public class Movement : MonoBehaviour
         var characterDir = transform.localScale;
 
         var isOutside = view.x < 0 || view.x > 1 || view.y < 0 || view.y > 1;
-        if (!isOutside && Input.GetMouseButton(1))
+        if (!isOutside && Input.GetMouseButtonDown(0))
         {
+            RaycastHit2D[] hit = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            bool found = false;
+            for (int i = 0; i < hit.Length; i++)
+            {
+                if (hit[i].transform.tag == "Interactable")
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found)
+                return;
+
             newPosition = mousePosition;
             isMoving = true;
             if (direction.x > 1f) // Player Face Right

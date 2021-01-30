@@ -42,7 +42,6 @@ public class Interactable : MonoBehaviour
 
     void OnMouseDown()
     {
-        print("clicked on " + this.gameObject);
         if (addToInventory)
         {
             GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
@@ -51,7 +50,7 @@ public class Interactable : MonoBehaviour
         if (deactiveColliderOnClick)
             GetComponent<BoxCollider2D>().enabled = false;
         if (DestoryOnClick)
-            Destroy(gameObject);
+            Destroy(gameObject, Time.deltaTime);
         onClickEvent.Invoke();
     }
 }
