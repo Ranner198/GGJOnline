@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Inventory : MonoBehaviour
 {
@@ -41,10 +44,13 @@ public class Inventory : MonoBehaviour
 
     public void UseItem(int index)
     {
-        print("CLicked");
-        inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
-        inHand.GetComponent<Collider2D>().enabled = false;
-        Index = index;
+        if (inHand == null) 
+        {
+            print("CLicked");
+            inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
+            inHand.GetComponent<Collider2D>().enabled = false;
+            Index = index;
+        }
     }
 
     public void Update()
@@ -55,7 +61,7 @@ public class Inventory : MonoBehaviour
             mousePos.z = 0;
             inHand.transform.position = mousePos;
 
-            if (Input.GetMouseButton(0)) 
+            if (Input.GetMouseButton(0) && eventSystem.currentSelectedGameObject.GetType() != typeof(UnityEngine.UI.Image))
             {
                 Use(mousePos);
             }
