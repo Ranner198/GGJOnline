@@ -52,5 +52,6 @@ public class Interactable : MonoBehaviour
         if (DestoryOnClick)
             Destroy(gameObject, Time.deltaTime);
         onClickEvent.Invoke();
+        Movement.instance.HaltMovement();
     }
 }

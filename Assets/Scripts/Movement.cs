@@ -17,10 +17,13 @@ public class Movement : MonoBehaviour
     public bool isMoving = false;
     public string lastSceneName;
     public EventSystem eventSystem;
+    public static Movement instance;
+    private bool cancelMoving = false;
 
     private void Awake()
     {
         scaleSize = transform.localScale.x;
+        instance = this;
     }
 
     private void Start()
@@ -48,7 +51,7 @@ public class Movement : MonoBehaviour
         var characterDir = transform.localScale;
 
         var isOutside = view.x < 0 || view.x > 1 || view.y < 0 || view.y > 1;
-        if (!isOutside && Input.GetMouseButtonDown(0))
+        if (!isOutside && (Input.GetMouseButtonDown(0) && !cancelMoving))
         {
             bool found = false;
 
@@ -66,16 +69,18 @@ public class Movement : MonoBehaviour
                 return;
 
             newPosition = mousePosition;
+            direction = newPosition - (Vector2)transform.position;
             isMoving = true;
-            if (direction.x > 1f) // Player Face Right
+            if (direction.x > 0f) // Player Face Right
             {
-                characterDir.x = scaleSize;                
+                characterDir.x = Mathf.Abs(scaleSize);
             }
-            else if (direction.x < -1f) // Player Face Left
+            else if (direction.x < 0f) // Player Face Left
             {
-                characterDir.x = -scaleSize;
+                characterDir.x = -Mathf.Abs(scaleSize);
             }
         }
+        cancelMoving = false;
 
         float distance = Vector2.Distance(transform.position, newPosition);
         transform.Translate((newPosition-(Vector2)transform.position).normalized * Time.deltaTime * speed);
@@ -83,11 +88,6 @@ public class Movement : MonoBehaviour
         if (anim != null) anim.SetFloat("Vel", distance);
         // Face Direction
         transform.localScale = characterDir;
-    }
-
-    void CancelMovement()
-    {
-        newPosition = transform.position;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -110,7 +110,10 @@ public class Movement : MonoBehaviour
 
     public void HaltMovement()
     {
+Debug.Log("Halting movement");
         newPosition = transform.position;
         if (anim != null) anim.StopPlayback();
+        isMoving = false;
+        cancelMoving = true;
     }
 }
