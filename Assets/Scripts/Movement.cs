@@ -11,10 +11,16 @@ public class Movement : MonoBehaviour
     public Vector2 newPosition;
     public Animator anim;
     private float scaleSize = 0;
-    private bool isMoving = false;
+    public bool isMoving = false;
+
     private void Awake()
     {
         scaleSize = transform.localScale.x;
+    }
+
+    private void Start()
+    {
+        camera = Camera.main;
     }
 
     void Update()
@@ -36,25 +42,18 @@ public class Movement : MonoBehaviour
             isMoving = true;
             if (direction.x > 1f) // Player Face Right
             {
-                characterDir.x = scaleSize;
-                if (anim != null) anim.SetTrigger("Walk");
+                characterDir.x = scaleSize;                
             }
             else if (direction.x < -1f) // Player Face Left
             {
                 characterDir.x = -scaleSize;
-                if (anim != null) anim.SetTrigger("Walk");
             }
         }
 
         float distance = Vector2.Distance(transform.position, newPosition);
         transform.Translate((newPosition-(Vector2)transform.position).normalized * Time.deltaTime * speed);
 
-        if (distance < 1 && isMoving == true)
-        {
-            isMoving = false;
-            if (anim != null) anim.SetTrigger("Idle");
-        }
-
+        if (anim != null) anim.SetFloat("Vel", distance);
         // Face Direction
         transform.localScale = characterDir;
     }
