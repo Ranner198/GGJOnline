@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: deactiveColliderOnClick
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 881338147, guid: e309e5888480fbc428add59df659e774, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1516252827502509620, guid: e309e5888480fbc428add59df659e774, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -70,6 +74,10 @@ PrefabInstance:
     - target: {fileID: 8633241155115624799, guid: e309e5888480fbc428add59df659e774, type: 3}
       propertyPath: m_Name
       value: PhoneBattery Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633241155115624799, guid: e309e5888480fbc428add59df659e774, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e309e5888480fbc428add59df659e774, type: 3}
