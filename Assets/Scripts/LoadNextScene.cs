@@ -6,14 +6,28 @@ using UnityEngine.SceneManagement;
 public class LoadNextScene : MonoBehaviour
 {
     public string nextScene;
+    public bool ReadyForCollisions = false;
+
+    public void Start()
+    {
+        StartCoroutine(ReadyNow());
+    }
+    IEnumerator ReadyNow()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ReadyForCollisions = true;
+    }
 
     public void OnCollisionEnter2D(Collision2D coll)
     {
         print(coll.gameObject.tag);
-        if (coll.transform.tag == "Player")
+        if (ReadyForCollisions)
         {
-            GameStateManager.instance.lastSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(nextScene);
+            if (coll.transform.tag == "Player")
+            {
+                GameStateManager.instance.lastSceneName = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(nextScene);
+            }
         }
     }
 }

@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
         Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
 
         newPosition = transform.position;
+        if (anim != null) anim.StopPlayback();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -74,6 +75,7 @@ public class Movement : MonoBehaviour
         if (StartPositions)
         {
             newPosition = transform.position = StartPositions.Spawned(this.transform, GameStateManager.instance.lastSceneName);
+            if (anim != null) anim.StopPlayback();
             Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
         }
         else

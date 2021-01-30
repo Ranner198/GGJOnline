@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3562704272871547644}
   - component: {fileID: 7400522184427263513}
   - component: {fileID: 3874034738367134919}
+  - component: {fileID: 4020140901117370362}
   m_Layer: 0
   m_Name: SpawnEntry
   m_TagString: Untagged
@@ -96,3 +97,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+--- !u!61 &4020140901117370362
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562704272871547647}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.280001, y: 5.621818}
+    newSize: {x: 7.38, y: 5.130781}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.3899994, y: 5.1509542}
+  m_EdgeRadius: 0
