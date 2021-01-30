@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {     
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour
     public Animator anim;
     private float scaleSize = 0;
     public bool isMoving = false;
+    public string lastSceneName;
 
     private void Awake()
     {
@@ -21,6 +23,12 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         camera = Camera.main;
+        SpawnPosition StartPositions = FindObjectOfType<SpawnPosition>();
+        newPosition = transform.position = StartPositions.Spawned(this.transform, GameStateManager.instance.lastSceneName);
+        Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
+
+        newPosition = transform.position;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update()
@@ -56,5 +64,22 @@ public class Movement : MonoBehaviour
         if (anim != null) anim.SetFloat("Vel", distance);
         // Face Direction
         transform.localScale = characterDir;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SpawnPosition StartPositions = FindObjectOfType<SpawnPosition>();
+        Debug.Log("Loaded scene!");
+
+        if (StartPositions)
+        {
+            newPosition = transform.position = StartPositions.Spawned(this.transform, GameStateManager.instance.lastSceneName);
+            Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
+        }
+        else
+        {
+            Debug.LogError("Didn't find list of spawns! Going to (0,0)");
+            // Do nothing
+        }
     }
 }

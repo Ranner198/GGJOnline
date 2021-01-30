@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class SpawnPosition : MonoBehaviour
 {
-    public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
-    public static SpawnPosition instance;
+    [SerializeField]
+    private List<SpawnEntry> spawnPoints = new List<SpawnEntry>();
+
     public void Awake()
     {
-        if (instance == null)
-            instance = this;        
+        SpawnEntry[] Entries = FindObjectsOfType<SpawnEntry>();
+        foreach (SpawnEntry Entry in Entries)
+        {
+            spawnPoints.Add(Entry);
+        }
     }
+
     public Vector3 Spawned(Transform playersTransform, string lastSceneName) 
     {
         foreach (var spawn in spawnPoints)
         {
-            print(spawn.sceneName + "/" + lastSceneName);
+            print("Looking for spawn for: " + spawn.sceneName + "/" + lastSceneName);
             if (lastSceneName == spawn.sceneName)
             {
-                playersTransform.position = spawn.spawnPosition.position;
-                return spawn.spawnPosition.position;
+                playersTransform.position = spawn.transform.position;
+                return spawn.transform.position;
             }
         }
 
+        // Default to middle if not found
+        Debug.LogWarning("No start position found! Going to start");
         return Vector3.zero;
     }
-}
-
-[System.Serializable]
-public class SpawnPoint {
-    public string sceneName;
-    public Transform spawnPosition;
 }

@@ -15,13 +15,13 @@ public class PlayerRef : MonoBehaviour
             instance = this;
         if (instance != this)
             Destroy(this.gameObject);
-        DontDestroyOnLoad(this.gameObject);
+//        DontDestroyOnLoad(this.gameObject);
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+//        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        movement.newPosition = SpawnPosition.instance.Spawned(this.transform, lastSceneName);      
+//        movement.newPosition = SpawnPosition.instance.Spawned(this.transform, lastSceneName);      
     }
 }

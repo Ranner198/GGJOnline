@@ -6,6 +6,7 @@ public class GameStateManager : MonoBehaviour
 {
     public string Room;
     public static GameStateManager instance;
+    public string lastSceneName;
     [SerializeField]
     public List<string> StateMap = new List<string>();
 
