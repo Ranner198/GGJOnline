@@ -26,8 +26,8 @@ public class Interactable : MonoBehaviour
         }
         else
         {
-            DontDestroyOnLoad(this.gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            //DontDestroyOnLoad(this.gameObject);
+//            SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
 
@@ -45,7 +45,7 @@ public class Interactable : MonoBehaviour
         print("clicked on " + this.gameObject);
         if (addToInventory)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
+            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
             GameStateManager.Set(TakenState);
         }
         if (deactiveColliderOnClick)

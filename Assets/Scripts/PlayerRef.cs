@@ -7,16 +7,14 @@ public class PlayerRef : MonoBehaviour
 {
     public static PlayerRef instance;
     public string lastSceneName;
-    public new Camera camera;
     public Movement movement;
+
     void Start()
     {
         if (instance == null)
             instance = this;
         if (instance != this)
             Destroy(this.gameObject);
-
-        DontDestroyOnLoad(camera);
         DontDestroyOnLoad(this.gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;

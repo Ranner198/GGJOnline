@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5305982283679845626}
   - component: {fileID: 5305982283679845627}
   - component: {fileID: 5305982283679845629}
-  - component: {fileID: 5305982283679845628}
   - component: {fileID: 5305982283679845630}
   - component: {fileID: 5305982283679845633}
   - component: {fileID: 5305982283679845632}
@@ -106,33 +105,6 @@ MonoBehaviour:
   newPosition: {x: 0, y: 0}
   anim: {fileID: 5305982283679845631}
   isMoving: 0
---- !u!114 &5305982283679845628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5305982283679845624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111260cb1f61b2f42ae5085c1c573df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  eventSystem: {fileID: 0}
-  inventoryItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  numberOfInventorySlots: 10
-  inHand: {fileID: 0}
 --- !u!50 &5305982283679845630
 Rigidbody2D:
   serializedVersion: 4

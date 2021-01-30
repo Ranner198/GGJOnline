@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
-    public new Camera camera;
+    private new Camera camera;
     public EventSystem eventSystem;
-    public List<InventoryItem> inventoryItems;    
+    public List<InventoryItem> inventoryItems;   
 
     public int numberOfInventorySlots = 10;
 
@@ -15,6 +15,14 @@ public class Inventory : MonoBehaviour
     private GameObject inHand;
     private int Index;
 
+    public void Start()
+    {
+        camera = Camera.main;
+        foreach (InventoryItem item in inventoryItems)
+        {
+            item.inventoryRef = this;
+        }
+    }
     public void AddItem(string Name, int quantity, Sprite sprite, GameObject go) 
     {
         bool found = false;
