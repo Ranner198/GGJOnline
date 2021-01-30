@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5245724222488768500}
   - component: {fileID: -31612356596138480}
   - component: {fileID: 881338147}
+  - component: {fileID: 881338151}
   m_Layer: 0
   m_Name: PhoneBattery
   m_TagString: Untagged
@@ -98,7 +99,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onClickEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881338151}
+        m_TargetAssemblyTypeName: NarrarationObject, Assembly-CSharp
+        m_MethodName: Narrarate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Found battery!
+          m_BoolArgument: 0
+        m_CallState: 2
   addToInventory: 1
   DestoryOnClick: 1
   deactiveColliderOnClick: 1
@@ -133,3 +146,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.97, y: 5.61}
   m_EdgeRadius: 0
+--- !u!114 &881338151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633241155115624799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a836f3d543000164d840e5f446a8765c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

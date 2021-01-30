@@ -1059,7 +1059,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupID: Poster
   haltMovement: 1
+  ignoreWalkOver: 0
   ReadyForCollisions: 0
+  onPopup:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1608535602
 Transform:
   m_ObjectHideFlags: 0
