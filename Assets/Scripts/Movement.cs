@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {     
@@ -14,6 +16,7 @@ public class Movement : MonoBehaviour
     private float scaleSize = 0;
     public bool isMoving = false;
     public string lastSceneName;
+    public EventSystem eventSystem;
 
     private void Awake()
     {
@@ -47,14 +50,15 @@ public class Movement : MonoBehaviour
         var isOutside = view.x < 0 || view.x > 1 || view.y < 0 || view.y > 1;
         if (!isOutside && Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D[] hit = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             bool found = false;
+
+            RaycastHit2D[] hit = Physics2D.RaycastAll(mousePosition, Vector2.zero, 100);
             for (int i = 0; i < hit.Length; i++)
             {
                 if (hit[i].transform.tag == "Interactable")
                 {
                     found = true;
-                    break;
+                    return;
                 }
             }
 
@@ -79,6 +83,11 @@ public class Movement : MonoBehaviour
         if (anim != null) anim.SetFloat("Vel", distance);
         // Face Direction
         transform.localScale = characterDir;
+    }
+
+    void CancelMovement()
+    {
+        newPosition = transform.position;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

@@ -10,9 +10,13 @@ public class Inventory : MonoBehaviour
 {
     private new Camera camera;
     public EventSystem eventSystem;
-    public List<InventoryItem> inventoryItems;   
+    public List<InventoryItem> inventoryItems;
 
     public int numberOfInventorySlots = 10;
+
+    [SerializeField] GraphicRaycaster m_Raycaster;
+    PointerEventData m_PointerEventData;
+    [SerializeField] EventSystem m_EventSystem;
 
     [SerializeField]
     private GameObject inHand;
@@ -33,7 +37,6 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryItems[i].Name == "")
             {
-                print(i);
                 inventoryItems[i].SetProps(i, Name, quantity, sprite, go);
                 found = true;
                 break;
@@ -46,7 +49,6 @@ public class Inventory : MonoBehaviour
     {
         if (inHand == null) 
         {
-            print("CLicked");
             inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
             inHand.GetComponent<Collider2D>().enabled = false;
             Index = index;
@@ -61,7 +63,7 @@ public class Inventory : MonoBehaviour
             mousePos.z = 0;
             inHand.transform.position = mousePos;
 
-            if (Input.GetMouseButton(0) && eventSystem.currentSelectedGameObject.GetType() != typeof(UnityEngine.UI.Image))
+            if (Input.GetMouseButton(0))
             {
                 Use(mousePos);
             }
@@ -71,23 +73,43 @@ public class Inventory : MonoBehaviour
     public void Use(Vector3 mousePos) 
     {
         mousePos.z = -10;
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(mousePos, Vector3.forward, 100.0F);
+        RaycastHit2D[] hits;
+        hits = Physics2D.RaycastAll(mousePos, Vector3.forward, 100.0F);
         Debug.DrawRay(mousePos, Vector3.forward * 100);
-        int i = 0;        
+        int i = 0;
+
+
+        // Check if hitting UI
+        //Set up the new Pointer Event
+        m_PointerEventData = new PointerEventData(m_EventSystem);
+        //Set the Pointer Event Position to that of the game object
+        m_PointerEventData.position = this.transform.localPosition;
+
+        //Create a list of Raycast Results
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        //Raycast using the Graphics Raycaster and mouse click position
+        m_Raycaster.Raycast(m_PointerEventData, results);
+        if (results.Count > 0) Debug.Log("Hit " + results[0].gameObject.name);
+
+
         while (i < hits.Length)
-        {
-            RaycastHit hit = hits[i];
+        {            
+            RaycastHit2D hit = hits[i];
+            print(hit.transform.tag);
             var itmNeeded = hit.transform.GetComponent<ItemNeeded>();            
             if (itmNeeded != null)
             {
                 if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
                 {                    
                     inventoryItems[Index].UseItem();
+                    Destroy(inHand);
                 }
             }
             i++;
-            Destroy(inHand);
-        }
+            
+            if (hit.transform.tag == "Background")
+                Destroy(inHand);
+        }        
     }
 }

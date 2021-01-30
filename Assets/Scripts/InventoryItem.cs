@@ -37,7 +37,6 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Mouse Down: " + eventData.pointerCurrentRaycast.gameObject.name);
         if (Interactable != null)
         {
             inventoryRef.UseItem(this.Index);

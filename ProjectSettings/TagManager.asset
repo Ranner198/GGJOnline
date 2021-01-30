@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Inventory
+  - InventoryItem
+  - Background
   layers:
   - Default
   - TransparentFX

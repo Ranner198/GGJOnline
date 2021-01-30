@@ -105,6 +105,7 @@ MonoBehaviour:
   anim: {fileID: 5305982283679845631}
   isMoving: 0
   lastSceneName: 
+  eventSystem: {fileID: 0}
 --- !u!50 &5305982283679845630
 Rigidbody2D:
   serializedVersion: 4
