@@ -84,4 +84,10 @@ public class Movement : MonoBehaviour
             // Do nothing
         }
     }
+
+    public void HaltMovement()
+    {
+        newPosition = transform.position;
+        if (anim != null) anim.StopPlayback();
+    }
 }
