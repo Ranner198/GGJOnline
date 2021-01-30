@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Scene4
   ReadyForCollisions: 0
+  Hide: 1
 --- !u!58 &345998644
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Scene2
   ReadyForCollisions: 0
+  Hide: 1
 --- !u!58 &400057140
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -446,6 +448,7 @@ GameObject:
   - component: {fileID: 890414458}
   - component: {fileID: 890414457}
   - component: {fileID: 890414456}
+  - component: {fileID: 890414459}
   m_Layer: 0
   m_Name: Barrier (2)
   m_TagString: Untagged
@@ -542,6 +545,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &890414459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890414454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &934555666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -878,6 +893,7 @@ GameObject:
   - component: {fileID: 1740508460}
   - component: {fileID: 1740508459}
   - component: {fileID: 1740508458}
+  - component: {fileID: 1740508461}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -974,6 +990,87 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1740508461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740508456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1761542243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 229461526099939669}
+    m_Modifications:
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.62115574
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547647, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_Name
+      value: SpawnEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874034738367134919, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: sceneName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400522184427263513, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400522184427263513, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
 --- !u!1001 &1830310314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1170,6 +1267,7 @@ GameObject:
   - component: {fileID: 2089002302}
   - component: {fileID: 2089002301}
   - component: {fileID: 2089002300}
+  - component: {fileID: 2089002303}
   m_Layer: 0
   m_Name: Barrier (1)
   m_TagString: Untagged
@@ -1266,6 +1364,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2089002303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089002298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2090139013
 PrefabInstance:
   m_ObjectHideFlags: 0

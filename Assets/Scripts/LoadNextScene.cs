@@ -7,10 +7,15 @@ public class LoadNextScene : MonoBehaviour
 {
     public string nextScene;
     public bool ReadyForCollisions = false;
+    public bool Hide = true;
 
     public void Start()
     {
         StartCoroutine(ReadyNow());
+        if (Hide)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
     IEnumerator ReadyNow()
     {

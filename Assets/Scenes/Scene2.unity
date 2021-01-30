@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 128405886}
   - component: {fileID: 128405885}
   - component: {fileID: 128405884}
+  - component: {fileID: 128405887}
   m_Layer: 0
   m_Name: Barrier (3)
   m_TagString: Untagged
@@ -231,6 +232,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &128405887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128405882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324822843
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +256,7 @@ GameObject:
   - component: {fileID: 324822847}
   - component: {fileID: 324822846}
   - component: {fileID: 324822845}
+  - component: {fileID: 324822848}
   m_Layer: 0
   m_Name: Barrier (6)
   m_TagString: Untagged
@@ -339,6 +353,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &324822848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324822843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &345998642
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Scene1
   ReadyForCollisions: 0
+  Hide: 1
 --- !u!58 &345998644
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -486,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Scene3
   ReadyForCollisions: 0
+  Hide: 1
 --- !u!58 &400057140
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -579,6 +607,7 @@ GameObject:
   - component: {fileID: 406769482}
   - component: {fileID: 406769481}
   - component: {fileID: 406769480}
+  - component: {fileID: 406769483}
   m_Layer: 0
   m_Name: Barrier (5)
   m_TagString: Untagged
@@ -675,6 +704,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &406769483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406769478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &457841014
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.62115574
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -892,6 +933,7 @@ GameObject:
   - component: {fileID: 1048186306}
   - component: {fileID: 1048186305}
   - component: {fileID: 1048186304}
+  - component: {fileID: 1048186307}
   m_Layer: 0
   m_Name: Barrier (1)
   m_TagString: Untagged
@@ -988,6 +1030,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1048186307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048186302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070446671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Scene5
   ReadyForCollisions: 0
+  Hide: 1
 --- !u!58 &1070446673
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1201,6 +1256,71 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1500763797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 229461526099939669}
+    m_Modifications:
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562704272871547647, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_Name
+      value: SpawnEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874034738367134919, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: sceneName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400522184427263513, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
 --- !u!1001 &1563176200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,6 +1501,7 @@ GameObject:
   - component: {fileID: 1740508460}
   - component: {fileID: 1740508459}
   - component: {fileID: 1740508458}
+  - component: {fileID: 1740508461}
   m_Layer: 0
   m_Name: Barrier (4)
   m_TagString: Untagged
@@ -1477,6 +1598,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1740508461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740508456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1830310314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1680,7 +1813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.62115574
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3562704272871547644, guid: a04c9ed0cb582a04c82f768c4ababa94, type: 3}
       propertyPath: m_LocalRotation.w
