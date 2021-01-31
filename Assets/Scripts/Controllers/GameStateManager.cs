@@ -45,6 +45,9 @@ public class GameStateManager : MonoBehaviour
 
     public static void Reset()
     {
-        instance.StateMap.Clear();
+        if (instance != null)
+        {
+            instance.StateMap.Clear();
+        }
     }
 }
