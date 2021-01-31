@@ -9,7 +9,7 @@ public class DeadPhone : MonoBehaviour
     // Start is called before the first frame update
     public void PhoneHasBatteryNow()
     {
-        GetComponent<TouchPopup>().DisablePopup = true;
+        //GetComponent<TouchPopup>().DisablePopup = true;
         Overlay.instance.ShowOnlyPopupImage("");
         LivePhone.SetActive(true);
         Destroy(gameObject);

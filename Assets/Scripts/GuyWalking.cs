@@ -88,6 +88,7 @@ public class GuyWalking : MonoBehaviour
             // Move at the above speed
             transform.position += UnitDir * MoveSpeed;
             Renderer.flipX = !(LeavePoint.position.x < transform.position.x);
+            GameStateManager.Set("GuyWalkingDone");
 
             // Did we get close enough to the end?
             if ((LeavePoint.position - transform.position).magnitude <= 0.1f)
