@@ -739,7 +739,7 @@ MonoBehaviour:
   OnMax: 2
   OffMin: 0.5
   OffMax: 0.5
-  StateRequired: 
+  StateRequired: PhonedHome
   BarrierExit: {fileID: 1380517731}
 --- !u!212 &394582250
 SpriteRenderer:
