@@ -11,6 +11,7 @@ public class FlushingBubble : MonoBehaviour
     public float OffMin = 0.5f;
     public float OffMax = 0.5f;
     public string StateRequired;
+    public GameObject BarrierExit;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class FlushingBubble : MonoBehaviour
 
         if (GameStateManager.Is(StateRequired))
         {
+            BarrierExit.SetActive(false);
             StartCoroutine(Flashing());
         }
         else

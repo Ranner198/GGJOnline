@@ -18,7 +18,6 @@ public class Bulldog : MonoBehaviour
     private Vector3 LastPositionFaced;
     public Transform BowlLocation;
     public GameObject Barrier1;
-    public GameObject Barrier2;
 
     public void EventFed(Vector3 MeatLocation)
     {
@@ -61,7 +60,6 @@ public class Bulldog : MonoBehaviour
     public void LowerBarriers()
     {
         Barrier1.SetActive(false);
-        Barrier2.SetActive(false);
     }
 
     // Update is called once per frame
