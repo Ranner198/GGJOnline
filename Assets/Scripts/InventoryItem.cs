@@ -50,6 +50,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     }
     public GameObject SpawnInteractable() 
     {
+        print(Interactable.name);
         return Interactable;
     }
 }

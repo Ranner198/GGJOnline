@@ -900,7 +900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1110923350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1078,13 +1078,14 @@ GameObject:
   - component: {fileID: 1380517734}
   - component: {fileID: 1380517733}
   - component: {fileID: 1380517736}
+  - component: {fileID: 1380517737}
   m_Layer: 0
   m_Name: Break2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1380517732
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,6 +1187,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1380517737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380517731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612ef5884cb875d40a98e0a75431f6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  addToInventory: 0
+  DestoryOnClick: 0
+  deactiveColliderOnClick: 0
+  TakenState: BrokenBarrerier2
+  Name: 
+  Quanity: 0
+  sprite: {fileID: 0}
+  ItemSpawn: {fileID: 0}
 --- !u!1 &1430258321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1634,7 @@ GameObject:
   - component: {fileID: 1715848821}
   - component: {fileID: 1715848820}
   - component: {fileID: 1715848822}
+  - component: {fileID: 1715848826}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Interactable
@@ -1689,12 +1714,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1715848819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6938ceec2a8a8e49a62d340a1406d5d, type: 3}
+  m_Script: {fileID: 11500000, guid: ab9ac0bd42c426140aa7d6fb01c197c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingStepDelay: 0.15
-  loadStep: 0
-  statusString: 
+  turnOff:
+  - {fileID: 1747804646}
+  - {fileID: 8865475225166466545}
+  turnOn:
+  - {fileID: 7605942165245474064}
+  - {fileID: 1110923349}
+  - {fileID: 2089002298}
+  - {fileID: 1380517731}
 --- !u!114 &1715848823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1750,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: There we go now I can get up ot the steaks!
+          m_StringArgument: There we go now I can get up to get the steaks!
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2089002298}
@@ -1795,6 +1825,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1715848820}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: d030814a06559a04db493e11f7275a31, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1715848826}
+        m_TargetAssemblyTypeName: DisableIfState, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   UnCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1850,6 +1904,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1715848826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715848819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe278117fb7e70b4e8492e01a8b3d3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: RopeClicked
 --- !u!1 &1740508456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +2054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1747804647
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2378,13 +2445,14 @@ GameObject:
   - component: {fileID: 2089002301}
   - component: {fileID: 2089002300}
   - component: {fileID: 2089002303}
+  - component: {fileID: 2089002304}
   m_Layer: 0
   m_Name: Break1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2089002299
 Transform:
   m_ObjectHideFlags: 0
@@ -2486,6 +2554,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ca044ba51a33840a4ff65281228992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2089002304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089002298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612ef5884cb875d40a98e0a75431f6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  addToInventory: 0
+  DestoryOnClick: 0
+  deactiveColliderOnClick: 0
+  TakenState: BrokenBarrerier1
+  Name: 
+  Quanity: 0
+  sprite: {fileID: 0}
+  ItemSpawn: {fileID: 0}
 --- !u!1001 &229461526099939667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2623,13 +2714,14 @@ GameObject:
   - component: {fileID: 2986191667504547960}
   - component: {fileID: 7605942165245474067}
   - component: {fileID: 7605942165245474066}
+  - component: {fileID: 7605942165245474068}
   m_Layer: 0
   m_Name: SteakCantPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &7605942165245474065
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2719,6 +2811,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6452394, y: 2.1627898}
   m_EdgeRadius: 0
+--- !u!114 &7605942165245474068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605942165245474064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612ef5884cb875d40a98e0a75431f6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  addToInventory: 0
+  DestoryOnClick: 0
+  deactiveColliderOnClick: 0
+  TakenState: StakePlaceHolder
+  Name: 
+  Quanity: 0
+  sprite: {fileID: 0}
+  ItemSpawn: {fileID: 0}
 --- !u!4 &7605942165245474078
 Transform:
   m_ObjectHideFlags: 0
@@ -2802,7 +2917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8865475225166466557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,7 +2935,7 @@ MonoBehaviour:
       m_Calls: []
   addToInventory: 1
   DestoryOnClick: 1
-  deactiveColliderOnClick: 1
+  deactiveColliderOnClick: 0
   TakenState: SteakTaken
   Name: Steak
   Quanity: 1

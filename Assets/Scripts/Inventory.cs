@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject inHand;
     private int Index;
+    [SerializeField]
     private bool usingItem = false;
 
     public void Start()
@@ -49,6 +50,7 @@ public class Inventory : MonoBehaviour
     {
         if (inHand == null) 
         {
+            print("Grabbing Inventory");
             inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
             inHand.GetComponent<Collider2D>().enabled = false;
             Index = index;
@@ -117,7 +119,7 @@ public class Inventory : MonoBehaviour
                     inventoryItems[Index].UseItem();
                     if (itmNeeded.Use(inHand.GetComponent<Interactable>().Name))
                     {
-                        Destroy(inHand);
+                        Destroy(inHand);                        
                     }
                 }
             }
