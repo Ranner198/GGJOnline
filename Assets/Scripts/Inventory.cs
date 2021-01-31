@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryItems[i].Name == "")
             {
-                print("Setting prop " + i);
+                //print("Setting prop " + i);
                 inventoryItems[i].SetProps(i, Name, quantity, sprite, go);
                 found = true;
                 break;
@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
     {
         if (inHand == null) 
         {
-            print("Grabbing Inventory");
+            //print("Grabbing Inventory");
             inHand = Instantiate(inventoryItems[index].SpawnInteractable(), transform.position, Quaternion.identity);
             inHand.GetComponent<Collider2D>().enabled = false;
             Index = index;
@@ -112,7 +112,7 @@ public class Inventory : MonoBehaviour
         while (i < hits.Length)
         {            
             RaycastHit2D hit = hits[i];
-            print("Use " + Index + ": " + hit.transform.name + " tag=" + hit.transform.tag);
+            //print("Use " + Index + ": " + hit.transform.name + " tag=" + hit.transform.tag);
             var itmNeeded = hit.transform.GetComponent<ItemNeeded>();            
             if (itmNeeded != null)
             {

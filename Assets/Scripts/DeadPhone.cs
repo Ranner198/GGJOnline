@@ -13,5 +13,14 @@ public class DeadPhone : MonoBehaviour
         Overlay.instance.ShowOnlyPopupImage("");
         LivePhone.SetActive(true);
         Destroy(gameObject);
+        GameStateManager.Set("DeadPhoneIsNowLive");
+    }
+
+    private void Start()
+    {
+        if (GameStateManager.Is("DeadPhoneIsNowLive"))
+        {
+            PhoneHasBatteryNow();
+        }
     }
 }

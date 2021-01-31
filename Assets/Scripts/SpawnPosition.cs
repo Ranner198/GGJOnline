@@ -20,7 +20,7 @@ public class SpawnPosition : MonoBehaviour
     {
         foreach (var spawn in spawnPoints)
         {
-            print("Looking for spawn for: " + spawn.sceneName + "/" + lastSceneName);
+            //print("Looking for spawn for: " + spawn.sceneName + "/" + lastSceneName);
             if (lastSceneName == spawn.sceneName)
             {
                 playersTransform.position = spawn.transform.position;
