@@ -7,6 +7,7 @@ public class ItemNeeded : MonoBehaviour
 {
     public string go;
     public UnityEvent Completed;
+    public UnityEvent UnCompleted;
 
     public bool Use(string go) 
     {
@@ -16,7 +17,10 @@ public class ItemNeeded : MonoBehaviour
             return true;
         }
         else
+        {
+            UnCompleted.Invoke();
             return false;
+        }
     }
 
     public bool CanUse(string go)
