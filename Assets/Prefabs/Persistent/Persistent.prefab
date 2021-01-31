@@ -232,7 +232,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.8
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -962,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377814351803860236, guid: 1368afdbc1bd8e842b52996834e7c3c4, type: 3}
       propertyPath: volumeEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6377814351823225322, guid: 1368afdbc1bd8e842b52996834e7c3c4, type: 3}
       propertyPath: m_Layer
