@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        // Reset the game when the main menu apepars
+        GameStateManager.Reset();
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
