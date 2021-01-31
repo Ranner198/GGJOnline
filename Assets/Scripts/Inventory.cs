@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
     public EventSystem eventSystem;
     public List<InventoryItem> inventoryItems;
 
+    public static Inventory instance;
+
     public int numberOfInventorySlots = 10;
 
     [SerializeField]
@@ -22,6 +24,7 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        instance = this;
         camera = Camera.main;
         foreach (InventoryItem item in inventoryItems)
         {
@@ -31,7 +34,6 @@ public class Inventory : MonoBehaviour
     public void AddItem(string Name, int quantity, Sprite sprite, GameObject go) 
     {
         bool found = false;
-        print("hello>");
         for (int i = 0; i < inventoryItems.Count; i++)
         {
             if (inventoryItems[i].Name == "")
