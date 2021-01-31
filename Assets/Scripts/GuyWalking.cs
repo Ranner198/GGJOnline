@@ -27,12 +27,20 @@ public class GuyWalking : MonoBehaviour
     public GameObject PhoneOnGround;
     public GameObject PhoneBattery;
     private int barkCount;
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
         barkCount = 3;
         if (GameStateManager.Is("GuyWalkingDone"))
         {
+            PhoneOnGround.SetActive(true);
+            PhoneBattery.SetActive(true);
             Destroy(gameObject);
         }
         else
@@ -48,6 +56,10 @@ public class GuyWalking : MonoBehaviour
     private void ResetPause()
     {
         IsPausing = false;
+        if (IsLeaving)
+            anim.SetBool("IsPausing", true);
+        else
+            anim.SetBool("IsPausing", false);
         TimeTilPause = Random.Range(2.0f, 5.0f);
         PauseTimeRemaining = Random.Range(0.5f, 2.5f);
     }
@@ -75,7 +87,7 @@ public class GuyWalking : MonoBehaviour
             Vector3 UnitDir = (LeavePoint.position - transform.position).normalized;
             // Move at the above speed
             transform.position += UnitDir * MoveSpeed;
-            Renderer.flipX = (LeavePoint.position.x < transform.position.x);
+            Renderer.flipX = !(LeavePoint.position.x < transform.position.x);
 
             // Did we get close enough to the end?
             if ((LeavePoint.position - transform.position).magnitude <= 0.1f)
@@ -87,13 +99,18 @@ public class GuyWalking : MonoBehaviour
         }
         else if (IsDroppingPhone)
         {
+            Phone.SetActive(true);
+            anim.SetBool("IsDropping", true);
+
             // Don't move, show phone dropping
             DropTimeRemaining -= Time.deltaTime;
             if (DropTimeRemaining < 0.0f)
             {
                 DropTimeRemaining = 0.0f;
                 IsDroppingPhone = false;
+                anim.SetBool("IsDropping", false);
                 IsLeaving = true;
+                anim.SetBool("IsLeaving", true);
             }
             Phone.transform.position = Vector3.Lerp(PhoneEndPoint.position, PhoneStartPoint.position, EasingFunction.EaseOutQuart(0, 1.0f, DropTimeRemaining/DropTime));
             if (IsDroppingPhone == false)
@@ -123,6 +140,7 @@ public class GuyWalking : MonoBehaviour
                 if (TimeTilPause <= 0.0)
                 {
                     IsPausing = true;
+                    anim.SetBool("IsPausing", true);
                 }
             }
             if (Percent >= 1.0f)
@@ -130,7 +148,7 @@ public class GuyWalking : MonoBehaviour
                 Percent = 1.0f;
             }
             transform.position = Vector3.Lerp(start, end, Percent);
-            Renderer.flipX = !IsGoingRight;
+            Renderer.flipX = IsGoingRight;
             if (Percent >= 1.0f)
             {
                 Percent = 0.0f;
@@ -162,6 +180,8 @@ public class GuyWalking : MonoBehaviour
                 if (barkCount == 0)
                 {
                     IsDroppingPhone = true;
+                    Phone.SetActive(true);
+                    anim.SetBool("IsDropping", true);
                 }
             }
         }
