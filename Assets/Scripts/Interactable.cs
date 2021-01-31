@@ -44,8 +44,17 @@ public class Interactable : MonoBehaviour
     {
         if (addToInventory)
         {
-            GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
-            GameStateManager.Set(TakenState);
+            if (String.IsNullOrEmpty(Inventory.instance.inventoryItems[0].Name))
+            {
+                GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>().AddItem(Name, Quanity, sprite, ItemSpawn);
+                GameStateManager.Set(TakenState);
+            }
+            else
+            {
+                Narrarator.instance.Action("Inventory Full");
+                Movement.instance.HaltMovement();
+                return;
+            }
         }
         else if (GetComponent<TouchPopup>())
         {
