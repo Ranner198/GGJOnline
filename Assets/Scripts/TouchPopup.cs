@@ -10,6 +10,7 @@ public class TouchPopup : MonoBehaviour
     public bool ignoreWalkOver = false;
     public bool ReadyForCollisions = false;
     public bool DisablePopup = false;
+    public UnityEvent OnMessage;
 
     public UnityEvent onPopup;
 
@@ -33,6 +34,7 @@ public class TouchPopup : MonoBehaviour
                 if (coll.transform.tag == "Player")
                 {
                     Show();
+                    OnMessage.Invoke();
                 }
             }
         }
@@ -45,7 +47,7 @@ public class TouchPopup : MonoBehaviour
         {
             if (!DisablePopup)
             {
-                print("Showing popup " + popupID);
+                //print("Showing popup " + popupID);
                 Overlay.instance.ShowOnlyPopupImage(popupID);
                 onPopup.Invoke();
             }

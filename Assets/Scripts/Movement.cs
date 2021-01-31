@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
         camera = Camera.main;
         SpawnPosition StartPositions = FindObjectOfType<SpawnPosition>();
         newPosition = transform.position = StartPositions.Spawned(this.transform, GameStateManager.instance.lastSceneName);
-        Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
+        //Debug.Log("Loaded from scene: " + GameStateManager.instance.lastSceneName + " and starting at " + newPosition);
 
         newPosition = transform.position;
         if (anim != null) anim.StopPlayback();
@@ -148,7 +148,7 @@ public class Movement : MonoBehaviour
 
     public void HaltMovement()
     {
-        Debug.Log("Halting movement");
+        //Debug.Log("Halting movement");
         newPosition = transform.position;
         if (anim != null) anim.StopPlayback();
         isMoving = false;
