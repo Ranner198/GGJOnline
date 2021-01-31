@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class MenuMethods : MonoBehaviour
 {
     public GameObject child;
+    public bool isUp = false;
+    public Movement movement;
     public void Update()
     {
+        isUp = child.activeSelf;
+
+        if (isUp)
+            movement.HaltMovement();
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            child.SetActive(!child.activeSelf);   
+            child.SetActive(!child.activeSelf);
         }
     }
     public void LoadScene(string sceneName) 

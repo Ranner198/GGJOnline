@@ -15,6 +15,7 @@ public class Narrarator : MonoBehaviour
     {
         instance = this;
         background.CrossFadeAlpha(0, Time.deltaTime, true);
+        narrarationText.CrossFadeAlpha(0, Time.deltaTime, true);
     }
 
     public void Action(string output) 
@@ -27,7 +28,9 @@ public class Narrarator : MonoBehaviour
     {
         narrarationText.text = output;
         background.CrossFadeAlpha(1, 1, true);
+        narrarationText.CrossFadeAlpha(1, 1, true);
         yield return new WaitForSecondsRealtime(showTime);
         background.CrossFadeAlpha(0, 1, true);
+        narrarationText.CrossFadeAlpha(0, 1, true);
     }
 }
