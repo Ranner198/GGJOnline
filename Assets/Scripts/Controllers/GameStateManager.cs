@@ -42,4 +42,9 @@ public class GameStateManager : MonoBehaviour
             instance.StateMap.Remove(Keyword);
         }
     }
+
+    public static void Reset()
+    {
+        instance.StateMap.Clear();
+    }
 }
