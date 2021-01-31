@@ -8,6 +8,7 @@ public class MenuMethods : MonoBehaviour
     public GameObject child;
     public bool isUp = false;
     public Movement movement;
+
     public void Update()
     {
         isUp = child.activeSelf;
