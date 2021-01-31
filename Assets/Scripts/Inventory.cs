@@ -59,10 +59,10 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
+        Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
         if (inHand != null)
-        {
-            Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition); ;
-            mousePos.z = 0;
+        {                        
             inHand.transform.position = mousePos;
 
             if (Input.GetMouseButtonDown(0) && usingItem)
@@ -71,6 +71,29 @@ public class Inventory : MonoBehaviour
                 usingItem = false;
             }
             usingItem = true;
+        }
+        else
+        {
+            // Allow user to click on objects without things in their hands
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit2D[] hits;
+                hits = Physics2D.RaycastAll(mousePos, Vector3.forward, 100.0F);
+                Debug.DrawRay(mousePos, Vector3.forward * 100);
+                int i = 0;
+
+                while (i < hits.Length)
+                {
+                    RaycastHit2D hit = hits[i];
+                    print("Use " + Index + ": " + hit.transform.name + " tag=" + hit.transform.tag);
+                    var itmNeeded = hit.transform.GetComponent<ItemNeeded>();
+                    if (itmNeeded != null)
+                    {
+                        itmNeeded.EmptyClicked();
+                    }
+                    i++;
+                }
+            }
         }
     }
 

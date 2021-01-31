@@ -23,6 +23,11 @@ public class ItemNeeded : MonoBehaviour
         }
     }
 
+    public void EmptyClicked()
+    {
+        UnCompleted.Invoke();
+    } 
+
     public bool CanUse(string go)
     {
         if (this.go == go)
